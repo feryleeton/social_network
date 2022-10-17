@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "dd183555-96c9-4979-8e4e-e428842e63b5",
+		"name": "social_network",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23299268"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "usermail@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "username",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "Fname",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Lname",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "userpass",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/accounts/register/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"accounts",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtain_token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "usermail@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "userpass",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/accounts/token/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"accounts",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh_token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2NTgyNDQxMSwiaWF0IjoxNjY1NzM4MDExLCJqdGkiOiJmYzFhNmQ0OGFlNzg0Mzg1ODU4OWY4OTBhM2ZkZmFkOCIsInVzZXJfaWQiOjN9.BX2IWo8UCeuPcbeYoUJGu-1V4-7Vgt7S6E0gY1bm9iQ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/accounts/token/refresh/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"accounts",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feed",
+			"item": [
+				{
+					"name": "create_post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1OTExNjMyLCJpYXQiOjE2NjU5MDg2MzIsImp0aSI6IjhmOTk2MTg4YTQyYzRiN2E4ODk3NGQ4M2NhMTY3Nzk2IiwidXNlcl9pZCI6Mn0.BS8kalyEOM6krCWHqUZx7q3cq3g7d4I9h4r2CsT8lHY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Hello World !",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/home/pavlo/Pictures/Screenshots/Screenshot from 2022-09-20 12-56-16.png",
+										"/home/pavlo/Pictures/Screenshots/Screenshot from 2022-09-20 13-20-56.png",
+										"/home/pavlo/Pictures/Screenshots/Screenshot from 2022-09-20 14-35-20.png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/feed/posts/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"feed",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list_posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/feed/posts",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"feed",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1OTI0NjY0LCJpYXQiOjE2NjU5MjE2NjQsImp0aSI6ImUyNjBmOTVkODY4ZDRjODliNjcxZTQxMTRkNzM1NmExIiwidXNlcl9pZCI6NH0.o092Wi9_4lUgYANkbadDEVzUT1hOzxRkspGf9P6aC0o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/feed/posts/like/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"feed",
+								"posts",
+								"like",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "analytics",
+			"item": [
+				{
+					"name": "likes_activity_analytics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/analytics?date_from=2022-10-11&date_to=2022-10-18",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"analytics"
+							],
+							"query": [
+								{
+									"key": "date_from",
+									"value": "2022-10-11"
+								},
+								{
+									"key": "date_to",
+									"value": "2022-10-18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user_activity_analitycs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/analytics/user/4",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"analytics",
+								"user",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
