@@ -5,11 +5,13 @@
 > virtualenv venv
 3. Activate virtual env
 > source venv/bin/activate
-4. Make migrations
+4. Install requirements
+> pip install -r requirements.txt
+5. Make migrations
 > python manage.py makemigrations
-5. Create superuser
+6. Create superuser
 > python manage.py createsuperuser
-6. Run server
+7. Run server
 > python manage.py runserver
 ## Documentation
 Documentation can be found by url: 
